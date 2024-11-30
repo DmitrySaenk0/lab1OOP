@@ -23,9 +23,20 @@
         android:id="@+id/inputDimension"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Введіть значення (радіус або сторону)"
+        android:hint="Введіть радіус або сторону"
         android:inputType="numberDecimal"
         app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp" />
+
+    <EditText
+        android:id="@+id/inputDimension2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Введіть другу сторону для прямокутника"
+        android:inputType="numberDecimal"
+        app:layout_constraintTop_toBottomOf="@id/inputDimension"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="16dp" />
@@ -35,7 +46,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Обчислити площу кола"
-        app:layout_constraintTop_toBottomOf="@id/inputDimension"
+        app:layout_constraintTop_toBottomOf="@id/inputDimension2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
@@ -50,6 +61,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
 
+    <Button
+        android:id="@+id/calculateRectangleButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Обчислити площу прямокутника"
+        app:layout_constraintTop_toBottomOf="@id/calculateSquareButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
     <TextView
         android:id="@+id/resultTextView"
         android:layout_width="0dp"
@@ -57,7 +78,7 @@
         android:text="Результат буде тут"
         android:textSize="18sp"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/calculateSquareButton"
+        app:layout_constraintTop_toBottomOf="@id/calculateRectangleButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />

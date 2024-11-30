@@ -13,8 +13,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val inputDimension: EditText = findViewById(R.id.inputDimension)
+        val inputDimension2: EditText = findViewById(R.id.inputDimension2)
         val calculateCircleButton: Button = findViewById(R.id.calculateCircleButton)
         val calculateSquareButton: Button = findViewById(R.id.calculateSquareButton)
+        val calculateRectangleButton: Button = findViewById(R.id.calculateRectangleButton)
         val resultTextView: TextView = findViewById(R.id.resultTextView)
 
         calculateCircleButton.setOnClickListener {
@@ -48,6 +50,25 @@ class MainActivity : AppCompatActivity() {
                 }
             } else {
                 resultTextView.text = "Поле не може бути порожнім!"
+            }
+        }
+
+        calculateRectangleButton.setOnClickListener {
+            val lengthText = inputDimension.text.toString()
+            val widthText = inputDimension2.text.toString()
+
+            if (lengthText.isNotEmpty() && widthText.isNotEmpty()) {
+                val length = lengthText.toDoubleOrNull()
+                val width = widthText.toDoubleOrNull()
+
+                if (length != null && length > 0 && width != null && width > 0) {
+                    val area = length * width
+                    resultTextView.text = "Площа прямокутника: %.2f".format(area)
+                } else {
+                    resultTextView.text = "Введіть правильні значення для довжини та ширини!"
+                }
+            } else {
+                resultTextView.text = "Поля не можуть бути порожніми!"
             }
         }
     }
