@@ -11,7 +11,7 @@
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Калькулятор площі кола"
+        android:text="Калькулятор площі фігур"
         android:textSize="24sp"
         android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,10 +20,10 @@
         android:layout_marginTop="16dp" />
 
     <EditText
-        android:id="@+id/inputRadius"
+        android:id="@+id/inputDimension"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Введіть радіус"
+        android:hint="Введіть значення (радіус або сторону)"
         android:inputType="numberDecimal"
         app:layout_constraintTop_toBottomOf="@id/textView"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,11 +31,21 @@
         android:layout_margin="16dp" />
 
     <Button
-        android:id="@+id/calculateButton"
+        android:id="@+id/calculateCircleButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Обчислити"
-        app:layout_constraintTop_toBottomOf="@id/inputRadius"
+        android:text="Обчислити площу кола"
+        app:layout_constraintTop_toBottomOf="@id/inputDimension"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/calculateSquareButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Обчислити площу квадрата"
+        app:layout_constraintTop_toBottomOf="@id/calculateCircleButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
@@ -47,7 +57,7 @@
         android:text="Результат буде тут"
         android:textSize="18sp"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/calculateButton"
+        app:layout_constraintTop_toBottomOf="@id/calculateSquareButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />

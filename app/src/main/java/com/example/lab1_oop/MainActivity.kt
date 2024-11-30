@@ -12,15 +12,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val inputRadius: EditText = findViewById(R.id.inputRadius)
-        val calculateButton: Button = findViewById(R.id.calculateButton)
+        val inputDimension: EditText = findViewById(R.id.inputDimension)
+        val calculateCircleButton: Button = findViewById(R.id.calculateCircleButton)
+        val calculateSquareButton: Button = findViewById(R.id.calculateSquareButton)
         val resultTextView: TextView = findViewById(R.id.resultTextView)
 
-        calculateButton.setOnClickListener {
-            val radiusText = inputRadius.text.toString()
+        calculateCircleButton.setOnClickListener {
+            val inputText = inputDimension.text.toString()
 
-            if (radiusText.isNotEmpty()) {
-                val radius = radiusText.toDoubleOrNull()
+            if (inputText.isNotEmpty()) {
+                val radius = inputText.toDoubleOrNull()
 
                 if (radius != null && radius > 0) {
                     val area = PI * radius * radius
@@ -29,7 +30,24 @@ class MainActivity : AppCompatActivity() {
                     resultTextView.text = "Введіть правильне значення радіуса!"
                 }
             } else {
-                resultTextView.text = "Поле радіуса не може бути порожнім!"
+                resultTextView.text = "Поле не може бути порожнім!"
+            }
+        }
+
+        calculateSquareButton.setOnClickListener {
+            val inputText = inputDimension.text.toString()
+
+            if (inputText.isNotEmpty()) {
+                val side = inputText.toDoubleOrNull()
+
+                if (side != null && side > 0) {
+                    val area = side * side
+                    resultTextView.text = "Площа квадрата: %.2f".format(area)
+                } else {
+                    resultTextView.text = "Введіть правильне значення сторони!"
+                }
+            } else {
+                resultTextView.text = "Поле не може бути порожнім!"
             }
         }
     }
